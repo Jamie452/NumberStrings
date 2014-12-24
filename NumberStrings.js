@@ -1,0 +1,99 @@
+/**
+ * Author:      Jamie Street
+ * Website:     http://jamie.st
+ */
+var NumberStrings = (function () {
+    function NumberStrings(options) {
+        this.options = options;
+        // Declare the default options
+        var default_options = {
+            units: [
+                {
+                    name: 'hundred',
+                    value: 100
+                },
+                {
+                    name: 'thousand',
+                    value: 1000
+                },
+                {
+                    name: 'million',
+                    value: 1000000
+                },
+                {
+                    name: 'billion',
+                    value: 1000000000
+                },
+                {
+                    name: 'trillion',
+                    value: 1000000000000
+                },
+                {
+                    name: 'quadrillion',
+                    value: 1000000000000000
+                },
+                {
+                    name: 'quintillion',
+                    value: 1000000000000000000
+                },
+                {
+                    name: 'sextillion',
+                    value: 1000000000000000000000
+                },
+                {
+                    name: 'septillion',
+                    value: 1000000000000000000000000
+                }
+            ]
+        };
+        // Iterate through and decide if we're using the default of the users input
+        this.options = options || {};
+        for (var opt in default_options) {
+            if (default_options.hasOwnProperty(opt) && !this.options.hasOwnProperty(opt)) {
+                this.options[opt] = default_options[opt];
+            }
+        }
+        this.units = this.options.units;
+    }
+    NumberStrings.prototype.getUnit = function (number) {
+        var unit = null;
+        for (var i = 0; i < this.units.length; i++) {
+            //console.log('Iteration... ' + (i+1));
+            if (number < this.units[i].value) {
+                break;
+            }
+            if (number >= this.units[i].value) {
+                unit = this.units[i];
+            }
+        }
+        return unit;
+    };
+    NumberStrings.prototype.getName = function (number) {
+        var unit = this.getUnit(number);
+        if (unit) {
+            return unit.name;
+        }
+        else {
+            return null;
+        }
+    };
+    NumberStrings.prototype.getDecimal = function (number) {
+        var unit = this.getUnit(number);
+        if (unit) {
+            return parseFloat(number / unit.value);
+        }
+        else {
+            return number;
+        }
+    };
+    NumberStrings.prototype.format = function (number) {
+        var unit = this.getUnit(number);
+        if (unit) {
+            return this.getDecimal(number) + ' ' + this.getName(number);
+        }
+        else {
+            return number;
+        }
+    };
+    return NumberStrings;
+})();

@@ -21,7 +21,7 @@ console.log('999,999,999 = ' + ns.format(999999999)); // outputs: "999,999,999 =
 
 Advanced Usage:
 ------------
-The below methods are useful if you want to further format the decimal or unit name that is retered before they are concatinated into a string.
+The below methods are useful if you want to further format the decimal or unit name that is returned before they are concatinated into a string (default behavior of `ns.format(integer)`).
 
 
 getName(integer):

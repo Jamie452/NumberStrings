@@ -1,4 +1,5 @@
 /**
+ * Name:        NumberStrings.js
  * Author:      Jamie Street
  * Website:     http://jamie.st
  */
@@ -51,7 +52,7 @@ class NumberStrings {
             ]
         };
 
-        // Iterate through and decide if we're using the default of the users input
+        // Iterate through and decide if we're using the default or the users input
         this.options = options || {};
         for (var opt in default_options) {
             if (default_options.hasOwnProperty(opt) && !this.options.hasOwnProperty(opt)) {
@@ -59,16 +60,16 @@ class NumberStrings {
             }
         }
 
+        // Put units in their own variable, just to make later code a little more readable
         this.units = this.options.units;
 
     }
 
+    // Returns the appropriate unit object, depending on the number provided
     getUnit(number){
         var unit = null;
         for (var i = 0; i < this.units.length; i++){
-            //console.log('Iteration... ' + (i+1));
             if (number < this.units[i].value){
-                //console.log('Breaking...');
                 break;
             }
             if (number >= this.units[i].value){
@@ -78,6 +79,7 @@ class NumberStrings {
         return unit;
     }
 
+    // Returns the name of the unit that is most appropriate for the number provided
     getName(number){
         var unit = this.getUnit(number);
         if (unit){
@@ -87,6 +89,8 @@ class NumberStrings {
         }
     }
 
+    // Returns the "decimal" (for lack of a better word) that goes in front of the
+    // unit name, for the number provided
     getDecimal(number){
         var unit = this.getUnit(number);
         if (unit){
@@ -96,6 +100,7 @@ class NumberStrings {
         }
     }
 
+    // Returns a string in the format of: {{decimal}} {{unitname}}, for the number provided
     format(number){
         var unit = this.getUnit(number);
         if (unit){

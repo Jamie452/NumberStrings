@@ -1,4 +1,5 @@
 /**
+ * Name:        NumberStrings.js
  * Author:      Jamie Street
  * Website:     http://jamie.st
  */
@@ -46,19 +47,20 @@ var NumberStrings = (function () {
                 }
             ]
         };
-        // Iterate through and decide if we're using the default of the users input
+        // Iterate through and decide if we're using the default or the users input
         this.options = options || {};
         for (var opt in default_options) {
             if (default_options.hasOwnProperty(opt) && !this.options.hasOwnProperty(opt)) {
                 this.options[opt] = default_options[opt];
             }
         }
+        // Put units in their own variable, just to make later code a little more readable
         this.units = this.options.units;
     }
+    // Returns the appropriate unit object, depending on the number provided
     NumberStrings.prototype.getUnit = function (number) {
         var unit = null;
         for (var i = 0; i < this.units.length; i++) {
-            //console.log('Iteration... ' + (i+1));
             if (number < this.units[i].value) {
                 break;
             }
@@ -68,6 +70,7 @@ var NumberStrings = (function () {
         }
         return unit;
     };
+    // Returns the name of the unit that is most appropriate for the number provided
     NumberStrings.prototype.getName = function (number) {
         var unit = this.getUnit(number);
         if (unit) {
@@ -77,6 +80,8 @@ var NumberStrings = (function () {
             return null;
         }
     };
+    // Returns the "decimal" (for lack of a better word) that goes in front of the
+    // unit name, for the number provided
     NumberStrings.prototype.getDecimal = function (number) {
         var unit = this.getUnit(number);
         if (unit) {
@@ -86,6 +91,7 @@ var NumberStrings = (function () {
             return number;
         }
     };
+    // Returns a string in the format of: {{decimal}} {{unitname}}, for the number provided
     NumberStrings.prototype.format = function (number) {
         var unit = this.getUnit(number);
         if (unit) {

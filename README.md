@@ -40,3 +40,29 @@ getDecimal(integer):
 var ns = new NumberStrings();
 ns.getDecimal(1000); // Returns the decimal that goes in front of the unit name, in this case: 1
 ```
+
+
+Overwritting/extending the list of units:
+-----------------------------------------
+To overwrite/extend the default list of units, you can pass the below `units` option to the `NumberStrings()` constructor.
+The `value` is the lowest number that can possibly be counted as the specified unit `name`.
+
+```js
+var ns = new NumberStrings({
+        units: [
+            {
+                name: 'hundred',
+                value: 100
+            },
+            {
+                name: 'thousand',
+                value: 1000
+            },
+            {
+                name: 'million',
+                value: 1000000
+            }
+            ...
+        ]
+    });
+```

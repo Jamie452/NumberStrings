@@ -3,7 +3,7 @@ NumberStrings.js
 
 A simple Javascript class that formats numeric values into a more readable format.
 
-By default it will format up to a `septillion (1,000,000,000,000,000,000,000,000)`, however you can pass your own list of `units` to the constructor if you would like to overwrite/extend the default behaviour.
+By default it will format up to a `septillion (1,000,000,000,000,000,000,000,000)`, however you can pass your own list of `units` to the constructor if you would like to overwrite/extend the default list of units.
 
 
 Basic Usage:

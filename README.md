@@ -5,6 +5,13 @@ A simple Javascript class that formats numeric values into a more readable forma
 
 By default it will format up to a `septillion (1,000,000,000,000,000,000,000,000)`, however you can pass your own list of `units` to the constructor if you would like to overwrite/extend the default list of units (more on that below).
 
+If you have any ideas;
+
+- for new features
+- to improve performance
+
+please let me know by creating an issue/pull request!
+
 
 Basic Usage:
 ------------

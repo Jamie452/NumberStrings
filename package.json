@@ -2,7 +2,7 @@
   "name": "numberstrings",
   "description": "A simple Javascript class that formats numeric values in a more readable format.",
   "author": "Jamie Street <me@jamie.st>",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "git://github.com:Jamie452/NumberStrings.git"

@@ -1,5 +1,4 @@
-NumberStrings.js
-================
+# NumberStrings.js
 
 A simple Javascript class that formats numeric values into a more readable format.
 
@@ -13,8 +12,9 @@ If you have any ideas;
 please let me know by creating an issue/pull request!
 
 
-Basic Usage:
-------------
+## Basic Usage:
+
+##### Browser
 
 ```js
 var ns = new NumberStrings();
@@ -23,16 +23,31 @@ console.log('50,000,000 = ' + ns.format(50000000)); // outputs: "50,000,000 = 50
 console.log('999,999,999 = ' + ns.format(999999999)); // outputs: "999,999,999 = 999.999999 million"
 ```
 
+##### NodeJS
+
+To install using NPM:
+
+```
+npm install numberstrings
+```
+
+Then use as you would in the browser:
+
+```js
+var NumberStrings = require('numberstrings');
+var ns = new NumberStrings();
+```
 
 
 
-Advanced Usage:
-------------
+
+## Advanced Usage:
+
 The below methods are useful if you want to further format the decimal or unit name that is returned before they are concatinated into a string (default behavior of `ns.format(integer)`).
 
 
-getName(integer):
-------------
+##### getName(integer):
+
 
 ```js
 var ns = new NumberStrings();
@@ -40,8 +55,8 @@ ns.getName(1000); // Returns the string "thousand"
 ```
 
 
-getDecimal(integer):
-------------
+##### getDecimal(integer):
+
 
 ```js
 var ns = new NumberStrings();
@@ -49,8 +64,17 @@ ns.getDecimal(1000); // Returns the decimal that goes in front of the unit name,
 ```
 
 
-Overwritting/extending the list of units:
------------------------------------------
+##### Formatting number of decimal places
+
+```js
+var ns = new NumberStrings();
+var magicNumber = 123456789;
+console.log('Two decimal places: ' + ns.getDecimal(magicNumber).toFixed(2) + ' ' + ns.getName(magicNumber));
+```
+
+
+##### Overwriting/extending the list of units:
+
 To overwrite/extend the default list of units, you can pass the below `units` option to the `NumberStrings()` constructor.
 The `value` is the lowest number that can possibly be counted as the specified unit `name`.
 

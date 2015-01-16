@@ -103,3 +103,6 @@ var NumberStrings = (function () {
     };
     return NumberStrings;
 })();
+if (typeof exports !== 'undefined' && this.exports !== exports) {
+    module.exports = NumberStrings;
+}

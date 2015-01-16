@@ -111,3 +111,7 @@ class NumberStrings {
     }
 
 }
+
+if (typeof exports !== 'undefined' && this.exports !== exports) {
+    module.exports =  NumberStrings;
+}

@@ -1,0 +1,20 @@
+{
+  "name": "numberstrings",
+  "description": "An ini encoder/decoder for node",
+  "author": "Jamie Street <me@jamie.st>",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:Jamie452/NumberStrings.git"
+  },
+  "main": "NumberStrings.min.js",
+  "scripts": {
+    "test": "echo \"No tests defined. Yet.\""
+  },
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "license": "MIT"
+}

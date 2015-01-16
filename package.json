@@ -1,6 +1,6 @@
 {
   "name": "numberstrings",
-  "description": "An ini encoder/decoder for node",
+  "description": "A simple Javascript class that formats numeric values in a more readable format.",
   "author": "Jamie Street <me@jamie.st>",
   "version": "0.1.0",
   "repository": {
